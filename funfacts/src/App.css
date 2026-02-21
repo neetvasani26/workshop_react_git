@@ -5,11 +5,75 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  /* Modern App Styles */
+  #root {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+  }
+
+  .app-container {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 2rem;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    border-radius: 24px;
+    background: #fff;
+  }
+
+  .header {
+    margin-bottom: 2rem;
+  }
+
+  .header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #3a3a3a;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    color: #6c7a89;
+    margin-bottom: 0.5rem;
+  }
+
+  .card {
+    background: #f7fafd;
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.08);
+    margin-bottom: 1.5rem;
+  }
+
+  .fact-text {
+    font-size: 1.25rem;
+    color: #222;
+    margin-bottom: 1.5rem;
+    min-height: 60px;
+  }
+
+  .modern-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(90deg, #4f8cff 0%, #38c6ff 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.12);
+    transition: background 0.2s, transform 0.2s;
+  }
+  .modern-btn:hover {
+    background: linear-gradient(90deg, #38c6ff 0%, #4f8cff 100%);
+    transform: translateY(-2px) scale(1.03);
 }
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);

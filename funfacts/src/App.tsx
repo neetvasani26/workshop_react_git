@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const [fact, setFact] = useState<string>("");
+
+  const url = "https://uselessfacts.jsph.pl/api/v2/facts/random";
+
+  // API Call
+  useEffect(() => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);        // print full response
+        setFact(data.text);       // API fact text
+      })
+      .catch((error) => console.log(error));
+  }, [count]); // call again when button clicked
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="app-container">
+      <div className="header">
+        <h1>Fun Facts</h1>
+        <p className="subtitle">Discover something new every click!</p>
       </div>
-      <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <h2 className="fact-text">{fact ? fact : "Loading..."}</h2>
+        <button className="modern-btn" onClick={() => setCount(count + 1)}>
+          <span role="img" aria-label="refresh">🔄</span> Get New Fact ({count})
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
